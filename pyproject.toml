@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sys_desk_notifd"
+authors = [
+    { name="Irfan Latif", email="mirfatif.dev@gmail.com" },
+]
+description = "Send notifications from system services to desktop environment"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: POSIX :: Linux",
+]
+requires-python = ">=3.10"
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://github.com/mirfatif/SysDeskNotifD"
+"Bug Tracker" = "https://github.com/mirfatif/SysDeskNotifD/issues"
+
+[project.scripts]
+"notify_deskd.py" = "mirfatif.sys_desk_notifd.notify_deskd:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"mirfatif.sys_desk_notifd.etc.systemd.user" = ["sys_desk_notifd.service"]
+
+# For dynamic version from git tag.
+[tool.setuptools_scm]

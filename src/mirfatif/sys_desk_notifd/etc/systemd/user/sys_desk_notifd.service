@@ -1,0 +1,16 @@
+[Unit]
+Description=System Desktop Notification Daemon
+
+[Service]
+ExecStart=/usr/bin/python3 -m mirfatif.sys_desk_notifd.sys_desk_notifd
+
+StandardOutput=journal
+StandardError=journal
+
+Restart=always
+RestartSec=5
+
+Environment=PYTHONUSERBASE=/opt/python_user_base
+
+[Install]
+WantedBy=default.target
